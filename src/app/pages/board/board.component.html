@@ -1,0 +1,78 @@
+<app-header></app-header>
+<div class="container">
+  <div class="board-wrap">
+    <div class="example-container">
+      <h2>To do({{ todo.length }})</h2>
+    
+      <div
+        cdkDropList
+        #todoList="cdkDropList"
+        [cdkDropListData]="todo"
+        [cdkDropListConnectedTo]="currentUser.status === 'QA' ? [] : [inProgressList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of todo" cdkDrag>
+          <app-task
+            [task]="item"
+          ></app-task>
+        </div>
+      </div>
+    </div>    
+    
+    <div class="example-container">
+      <h2>In Progress({{ inProgress.length }})</h2>
+    
+      <div
+        cdkDropList
+        #inProgressList="cdkDropList"
+        [cdkDropListData]="inProgress"
+        [cdkDropListConnectedTo]="currentUser.status === 'QA' ? [] : [QAList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of inProgress" cdkDrag>
+          <app-task
+            [task]="item"
+          ></app-task>
+        </div>
+      </div>
+    </div>
+    
+    <div class="example-container">
+      <h2>QA({{ QA.length }})</h2>
+    
+      <div
+        cdkDropList
+        #QAList="cdkDropList"
+        [cdkDropListData]="QA"
+        [cdkDropListConnectedTo]="currentUser.status === 'QA' 
+        ? [doneList, todoList] : currentUser.status === 'pm' 
+        ? [doneList, todoList] : []"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of QA" cdkDrag>
+          <app-task
+            [task]="item"
+          ></app-task>
+        </div>
+      </div>
+    </div>    
+    
+    <div class="example-container">
+      <h2>Done({{ done.length }})</h2>
+    
+      <div
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="done"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of done" cdkDrag>
+          <app-task
+          [task]="item"
+          ></app-task>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+  

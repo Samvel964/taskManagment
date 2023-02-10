@@ -1,0 +1,42 @@
+<div class="modal-wrap" *ngIf="show" (mousedown)="modalService.close()" >
+    <div class="modall" (mousedown)="stop($event)" >
+        <div class="modall-header">
+            <span>{{ edit ? 'Edit Task' : 'Create Task' }}</span>
+        </div>
+        <div 
+            class="img-rounded" 
+            style="background: url('../../../assets/images/think.jpeg')">
+        </div>
+        <form [formGroup]="form" (ngSubmit)="submit()" >
+            <div class="inputs">
+                <mat-form-field class="input">
+                    <input 
+                        matInput 
+                        placeholder="Task name"
+                        formControlName="name"
+                    >
+                  </mat-form-field>
+                <mat-form-field 
+                    class="example-full-width" 
+                    
+                    class="input"
+                >
+                    <mat-label>Description</mat-label>
+                    <textarea matInput formControlName="description" ></textarea>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="input">
+                    <mat-label>Select Worker</mat-label>
+                    <mat-select formControlName="assigny">
+                      <mat-option [value]="1">Dev 1</mat-option>
+                      <mat-option [value]="2">Dev 2</mat-option>
+                      <mat-option [value]="3">Dev 3</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                <small class="error" *ngIf="error" >{{ error }}</small>
+            </div>
+            <button type="submit">{{ !edit ? "Create" : "Save changes" }}</button>
+        </form>
+    </div>
+</div>

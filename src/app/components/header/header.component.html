@@ -1,0 +1,42 @@
+<app-modal></app-modal>
+<nav class="navbar header">
+    <div class="container">
+        <div class="navbar-brand">
+            <span>Task Management</span>
+        </div>
+        <form [formGroup]="form" (ngSubmit)="searchSubmit()" *ngIf="currentUser.status === 'pm'">
+            <mat-form-field class="example-full-width">
+                <input 
+                    matInput 
+                    placeholder="Search task"
+                    formControlName="searchInput"
+                    (input)="emptyInput($event)"
+                >
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="select">
+                <mat-label>Worker</mat-label>
+                <mat-select formControlName="select" class="under_select">
+                  <mat-option value=""></mat-option>  
+                  <mat-option value="1">Dev 1</mat-option>
+                  <mat-option value="2">Dev 2</mat-option>
+                  <mat-option value="3">Dev 3</mat-option>
+                  <mat-option value="4">QA</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <button type="submit" mat-stroked-button>Search</button>
+        </form>
+        <div>
+            <span class="user-name">{{ currentUser.name }}</span>
+            <button 
+                class="create" 
+                *ngIf="currentUser.status === 'pm'" 
+                (click)="modalService.create()"
+            >Create Task</button>
+            <button 
+                class="logOut" 
+                (click)="logout()" 
+            >LOGOUT <i class="fa-regular fa-circle-xmark"></i></button>
+        </div>
+    </div>
+</nav>

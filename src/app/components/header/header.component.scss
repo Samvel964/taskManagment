@@ -1,0 +1,58 @@
+.header {
+    background-color: #f894c3;
+    padding: 15px 0;
+
+    span {
+        font-style: italic;
+        font-weight: bold;
+        color: white;
+    }
+    form {
+        .select {
+            max-width: 90px;
+            height: 0;
+            margin: 0 15px;
+        }
+    }
+    button {
+        margin: 0 15px;
+        display: inline-block;
+    }
+    span.user-name {
+        display: inline-block;
+        margin-right: 40px;
+        background-color: #f0d8d8;
+        color: black;
+        padding: 7px;
+        border-radius: 10px;
+    }
+
+    .create {
+        border: 2px solid #21ae21;
+        width: 150px;
+        height: 41px;
+        color: white;
+        background: linear-gradient(#52e70b, #295c11);
+
+        &:active {
+            background: linear-gradient(#295c11,#52e70b, #295c11);
+        }
+    }
+
+    .logOut {
+        width: 130px;
+        height: 41px;
+        border-top: 2px solid #f18407;
+        border-bottom: 2px solid #f90909;
+        border-left: 2px solid #f90909;
+        border-right: 2px solid #f90909;
+        border-radius: 21px;
+        color: white;
+        background: linear-gradient(#f90909,#f18407);
+
+        &:active {
+            border-top: 2px solid #f90909;
+            background: linear-gradient(#f18407,#f90909);
+        }
+    }
+}

@@ -1,0 +1,92 @@
+.modal-wrap {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    z-index: 1;
+
+    .modall {
+        max-width: 400px;
+        width: 100%;
+        background-color: white;
+        position: relative;
+        padding: 55px 40px 35px 40px;
+        border-radius: 7px;
+        overflow: hidden;
+        animation: modal 0.2s linear;
+
+        @keyframes modal {
+            from {
+                transform: scale(.8);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        &-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #f894c3;
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .img-rounded {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            border-radius: 50%;
+            overflow: hidden;
+            background-position: 213px 148px!important;
+            margin-top: 25px;
+        }
+
+        label {
+            margin-top: 25px;
+            color: gray;
+        }
+        .inputs {
+            .input {
+                width: 100%;
+            }
+            .select {
+                margin-left: 9px;
+                padding: 0px;
+                display: block;
+                margin-top: 12px;
+                color: gray;
+            }
+
+            select {
+                width: 60%;
+                margin: 10px auto;
+                display: block;
+                padding: 8px;
+                outline: none;
+            }
+        }
+
+        button {
+            display: block;
+            margin: 25px auto;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            background: linear-gradient(45deg, pink, yellow);
+            font-weight: 600;
+        }
+    }
+}

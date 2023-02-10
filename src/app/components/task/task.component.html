@@ -1,0 +1,6 @@
+<div class="task">
+    <i class="fa-solid fa-pen-to-square" *ngIf="currentUser.status === 'pm'" (click)="editTask()"></i>
+    <p>{{ task.name }}</p>
+    <small>{{ task.description }}</small>
+    <p>Task Status : {{ task.status }}</p>
+</div>

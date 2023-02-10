@@ -1,0 +1,17 @@
+.task {    
+    padding: 5px;
+    i {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        padding: 5px;
+        border-radius: 50%;
+        transition: .3s;
+        &:hover {
+            background-color: #e0dbdb;
+        }
+    }
+    p {
+        margin: 0;
+    }
+}
